@@ -1,6 +1,9 @@
+
 import unittest
 import calculator
 from calculator import logarithm, hypotenuse, square_root
+from calculator import add, subtract, divide
+
 
 class TestCalculator(unittest.TestCase):
 
@@ -24,25 +27,22 @@ class TestCalculator(unittest.TestCase):
             calculator.divide(0, 10)
 
     ######## Partner 2
-    def test_divide_by_zero(self):
-        with self.assertRaises(ZeroDivisionError):  # Or ValueError depending on your implementation
-            divide(10, 0)
 
-    import math
+    def test_divide_by_zero(self):
+        with self.assertRaises(ZeroDivisionError):
+            divide(0, 10)
 
     def test_logarithm(self):
-        # Test valid logarithm calculation (e.g., log base 10 of 100 is 2, or natural log)
-        result = logarithm(100, 10)  # Assuming arguments are (value, base)
-        self.assertEqual(result, 2)
+        result = logarithm(10, 100)
+        self.assertAlmostEqual(result, 2)
 
     def test_log_invalid_base(self):
-        # Ensure invalid bases raise an exception (e.g., ValueError)
         with self.assertRaises(ValueError):
-            logarithm(10, 1)  # Base 1 is invalid for logarithms
+            logarithm(1, 10)
 
     def test_log_invalid_argument(self):
         with self.assertRaises(ValueError):
-            logarithm(0, 5)
+            logarithm(10, 0)
 
     def test_hypotenuse(self):
         self.assertEqual(hypotenuse(3, 4), 5)
@@ -57,6 +57,5 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(square_root(9), 3)
 
 
-# Do not touch this
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()
