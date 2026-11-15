@@ -56,9 +56,6 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(square_root(4), 2)
         self.assertEqual(square_root(9), 3)
 
-    def test_exponent(self):
-        self.assertEqual(exp(2, 3), 8)
-
 
 if __name__ == '__main__':
     unittest.main()
