@@ -30,4 +30,16 @@ def logarithm(a, b):
 def exponent(a, b):
     return a ** b
 
+def square_root(a):
+    try:
+        return math.sqrt(a)
+    except ValueError:
+        raise ValueError
+
+
+def hypotenuse(a, b):
+    try:
+        return math.hypot(a, b)
+    except ValueError:
+        raise ValueError
 
